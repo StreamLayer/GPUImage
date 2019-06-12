@@ -904,7 +904,7 @@ NSString *const kGPUImageColorSwizzlingFragmentShaderString = SHADER_STRING
         }
         else if (audioOutputSettings == nil)
         {
-#if !TARGET_OS_TV
+#if TARGET_OS_IOS
             AVAudioSession *sharedAudioSession = [AVAudioSession sharedInstance];
             double preferredHardwareSampleRate;
             

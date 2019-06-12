@@ -1,4 +1,5 @@
 #import <UIKit/UIKit.h>
+#import <TargetConditionals.h>
 
 //! Project version number for GPUImageFramework.
 FOUNDATION_EXPORT double GPUImageFrameworkVersionNumber;
@@ -13,7 +14,7 @@ FOUNDATION_EXPORT const unsigned char GPUImageFrameworkVersionString[];
 #import <GPUImage/GPUImageOutput.h>
 #import <GPUImage/GPUImageView.h>
 
-#if TARGET_OS_IPHONE || (TARGET_IPHONE_SIMULATOR && !TARGET_OS_TV)
+#if TARGET_OS_IOS
 #import <GPUImage/GPUImageVideoCamera.h>
 #import <GPUImage/GPUImageStillCamera.h>
 #endif

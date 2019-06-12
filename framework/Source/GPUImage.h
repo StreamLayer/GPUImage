@@ -1,13 +1,16 @@
+#import <TargetConditionals.h>
 #import "GLProgram.h"
 
 // Base classes
 #import "GPUImageContext.h"
 #import "GPUImageOutput.h"
 #import "GPUImageView.h"
-#if !TARGET_OS_TV
+
+#if TARGET_OS_IOS
 #import "GPUImageVideoCamera.h"
 #import "GPUImageStillCamera.h"
 #endif
+
 #import "GPUImageMovie.h"
 #import "GPUImagePicture.h"
 #import "GPUImageRawDataInput.h"
