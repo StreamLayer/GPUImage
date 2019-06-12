@@ -4,8 +4,10 @@
 #import "GPUImageContext.h"
 #import "GPUImageOutput.h"
 #import "GPUImageView.h"
+#if !TARGET_OS_TV
 #import "GPUImageVideoCamera.h"
 #import "GPUImageStillCamera.h"
+#endif
 #import "GPUImageMovie.h"
 #import "GPUImagePicture.h"
 #import "GPUImageRawDataInput.h"

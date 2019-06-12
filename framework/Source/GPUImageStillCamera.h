@@ -1,3 +1,4 @@
+#if TARGET_OS_IPHONE || (TARGET_IPHONE_SIMULATOR && !TARGET_OS_TV)
 #import "GPUImageVideoCamera.h"
 
 void stillImageDataReleaseCallback(void *releaseRefCon, const void *baseAddress);
@@ -22,3 +23,4 @@ void GPUImageCreateResizedSampleBuffer(CVPixelBufferRef cameraFrame, CGSize fina
 - (void)capturePhotoAsPNGProcessedUpToFilter:(GPUImageOutput<GPUImageInput> *)finalFilterInChain withOrientation:(UIImageOrientation)orientation withCompletionHandler:(void (^)(NSData *processedPNG, NSError *error))block;
 
 @end
+#endif

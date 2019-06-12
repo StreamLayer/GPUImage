@@ -1,3 +1,4 @@
+#if TARGET_OS_IPHONE || (TARGET_IPHONE_SIMULATOR && !TARGET_OS_TV)
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 #import <CoreMedia/CoreMedia.h>
@@ -154,3 +155,4 @@ void setColorConversion709( GLfloat conversionMatrix[9] );
 + (BOOL)isFrontFacingCameraPresent;
 
 @end
+#endif

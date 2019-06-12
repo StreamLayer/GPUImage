@@ -329,6 +329,9 @@ void reportAvailableMemoryForGPUImage(NSString *tag)
 
 - (UIImage *)imageFromCurrentFramebuffer;
 {
+#if TARGET_OS_TV
+  return [self imageFromCurrentFramebufferWithOrientation:UIImageOrientationUp];
+#else
 	UIDeviceOrientation deviceOrientation = [[UIDevice currentDevice] orientation];
     UIImageOrientation imageOrientation = UIImageOrientationLeft;
 	switch (deviceOrientation)
@@ -351,6 +354,7 @@ void reportAvailableMemoryForGPUImage(NSString *tag)
 	}
     
     return [self imageFromCurrentFramebufferWithOrientation:imageOrientation];
+#endif
 }
 
 - (UIImage *)imageFromCurrentFramebufferWithOrientation:(UIImageOrientation)imageOrientation;

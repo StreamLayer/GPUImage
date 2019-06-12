@@ -1,3 +1,4 @@
+#if TARGET_OS_IPHONE || (TARGET_IPHONE_SIMULATOR && !TARGET_OS_TV)
 #import "GPUImageVideoCamera.h"
 #import "GPUImageMovieWriter.h"
 #import "GPUImageFilter.h"
@@ -1060,3 +1061,4 @@ void setColorConversion709( GLfloat conversionMatrix[9] )
 }
 
 @end
+#endif

@@ -194,7 +194,7 @@ NSString *const kGPUImageColorSwizzlingFragmentShaderString = SHADER_STRING
     if (outputSettings == nil) 
     {
         NSMutableDictionary *settings = [[NSMutableDictionary alloc] init];
-        [settings setObject:AVVideoCodecH264 forKey:AVVideoCodecKey];
+        [settings setObject:AVVideoCodecTypeH264 forKey:AVVideoCodecKey];
         [settings setObject:[NSNumber numberWithInt:videoSize.width] forKey:AVVideoWidthKey];
         [settings setObject:[NSNumber numberWithInt:videoSize.height] forKey:AVVideoHeightKey];
         outputSettings = settings;
@@ -904,6 +904,7 @@ NSString *const kGPUImageColorSwizzlingFragmentShaderString = SHADER_STRING
         }
         else if (audioOutputSettings == nil)
         {
+#if !TARGET_OS_TV
             AVAudioSession *sharedAudioSession = [AVAudioSession sharedInstance];
             double preferredHardwareSampleRate;
             
@@ -943,6 +944,7 @@ NSString *const kGPUImageColorSwizzlingFragmentShaderString = SHADER_STRING
                                    [ NSNumber numberWithInt: 64000 ], AVEncoderBitRateKey,
                                    [ NSData dataWithBytes: &acl length: sizeof( acl ) ], AVChannelLayoutKey,
                                    nil];*/
+#endif
         }
         
         assetWriterAudioInput = [AVAssetWriterInput assetWriterInputWithMediaType:AVMediaTypeAudio outputSettings:audioOutputSettings];

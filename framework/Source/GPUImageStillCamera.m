@@ -1,3 +1,4 @@
+#if TARGET_OS_IPHONE || (TARGET_IPHONE_SIMULATOR && !TARGET_OS_TV)
 // 2448x3264 pixel image = 31,961,088 bytes for uncompressed RGBA
 
 #import "GPUImageStillCamera.h"
@@ -336,3 +337,4 @@ void GPUImageCreateResizedSampleBuffer(CVPixelBufferRef cameraFrame, CGSize fina
 
 
 @end
+#endif

@@ -12,8 +12,12 @@ FOUNDATION_EXPORT const unsigned char GPUImageFrameworkVersionString[];
 #import <GPUImage/GPUImageContext.h>
 #import <GPUImage/GPUImageOutput.h>
 #import <GPUImage/GPUImageView.h>
+
+#if TARGET_OS_IPHONE || (TARGET_IPHONE_SIMULATOR && !TARGET_OS_TV)
 #import <GPUImage/GPUImageVideoCamera.h>
 #import <GPUImage/GPUImageStillCamera.h>
+#endif
+
 #import <GPUImage/GPUImageMovie.h>
 #import <GPUImage/GPUImagePicture.h>
 #import <GPUImage/GPUImageRawDataInput.h>
