@@ -1,0 +1,7 @@
+GPUImageFramework:
+  project: framework/GPUImage.xcodeproj
+  sdks:
+  - iphonesimulator
+  - iphoneos
+  - appletvos
+  - appletvsimulator

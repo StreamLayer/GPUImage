@@ -2,19 +2,19 @@
 build/*
 examples/FilterShowcase/build*
 framework/build/*
- 
+
 # Exclude temp nibs and swap files
 *~.nib
 *.swp
 *.zip
- 
+
 # Exclude OS X folder attributes
 .DS_Store
 .svn
 
 XCBuildData
 Carthage/
- 
+
 # Exclude user-specific XCode 3 and 4 files
 *.mode1
 *.mode1v3
@@ -28,3 +28,6 @@ xcuserdata
 # Documentation
 documentation/*
 DerivedData/
+node_modules/
+*.zip
+*.lock

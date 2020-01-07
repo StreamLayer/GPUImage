@@ -1,0 +1,22 @@
+---
+format_version: '6'
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+project_type: ios
+
+workflows:
+  deploy:
+    steps:
+    - script:
+        deps:
+          brew:
+          - name: node
+          - name: streamlayer/formulas/carthage
+          - name: streamlayer/formulas/prefixify
+        inputs:
+        - content: |-
+            #!/bin/bash
+
+            set -ex
+
+            yarn add semantic-release @semantic-release/exec @semantic-release/git
+            yarn semantic-release
