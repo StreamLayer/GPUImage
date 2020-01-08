@@ -19,4 +19,13 @@ workflows:
             set -ex
 
             yarn add semantic-release @semantic-release/exec @semantic-release/git
+
+            xcconfig=$(mktemp /tmp/static.xcconfig.XXXXXX)
+            trap 'rm -f "$xcconfig"; git checkout -- "$DIR"' INT TERM HUP EXIT
+
+            echo "MACH_O_TYPE = staticlib" >> $xcconfig
+            echo "DEBUG_INFORMATION_FORMAT = dwarf" >> $xcconfig
+            echo "CLANG_ENABLE_MODULE_DEBUGGING = NO" >> $xcconfig
+            export XCODE_XCCONFIG_FILE="$xcconfig"
+
             yarn semantic-release
