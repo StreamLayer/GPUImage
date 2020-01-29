@@ -1,18 +1,18 @@
 {
-  "branch": "master",
+  "branches": ["master", { "name": "5.0.1-swift", "prerelease": true }],
   "plugins": [
     ["@semantic-release/commit-analyzer", {
       "preset": "angular"
     }],
     ["@semantic-release/exec", {
-      "prepareCmd": "carthage build --commitish v${nextRelease.version} --cache-builds --archive --archive-output GPUImage.framework.zip"
+      "prepareCmd": "echo 'SWIFT_VERSION=5.1.3' >> $XCODE_XCCONFIG_FILE; carthage build --commitish v${nextRelease.version} --cache-builds --archive --archive-output SLR_GPUImage.framework.zip"
     }],
     ["@semantic-release/git", {
       "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
     }],
     ["@semantic-release/github", {
       "assets": [
-        { "path": "GPUImage.framework.zip" }
+        { "path": "SLR_GPUImage.framework.zip" }
       ]
     }]
   ]
