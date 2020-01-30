@@ -5,14 +5,14 @@
       "preset": "angular"
     }],
     ["@semantic-release/exec", {
-      "prepareCmd": "carthage build --commitish v${nextRelease.version} --cache-builds --archive --archive-output SLR_GPUImage.framework.zip"
+      "prepareCmd": "carthage build --commitish v${nextRelease.version} --cache-builds --archive --archive-output GPUImage.framework.zip"
     }],
     ["@semantic-release/git", {
       "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
     }],
     ["@semantic-release/github", {
       "assets": [
-        { "path": "SLR_GPUImage.framework.zip" }
+        { "path": "GPUImage.framework.zip" }
       ]
     }]
   ]
